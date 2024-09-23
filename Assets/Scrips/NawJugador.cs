@@ -26,7 +26,7 @@ public class NouJugador : MonoBehaviour
         float direccioindicadaX = Input.GetAxisRaw("Horizontal");
         float direccioindicadaY = Input.GetAxisRaw("Vertical");
         //Debug.Log("x: " + direccioindicadaX + "y: " + direccioindicadaY);
-        Vector2 direccioindicada = new Vector2(direccioindicadaX, direccioindicadaY);
+        Vector2 direccioindicada = new Vector2(direccioindicadaX, direccioindicadaY).normalized;
         
         Vector2 novaPos =transform.position;//transform.position pos actual de la nau
         novaPos=novaPos+direccioindicada*_vel*Time.deltaTime;
