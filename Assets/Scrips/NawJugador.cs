@@ -15,6 +15,21 @@ public class NouJugador : MonoBehaviour
         _vel = 8f;
         minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0,0));
         maxPantalla = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+        
+        float meitatMidaImatgeX =GetComponent<SpriteRenderer>().sprite.bounds.size.x transform.localScale.x /2;
+        float meitatMidaImatgeY =GetComponent<SpriteRenderer>().sprite.bounds.size.y transform.localScale.y /2;
+
+
+        //horizontal
+        minPantalla.x = minPantalla.x + meitatMidaImatgeX;
+        maxPantalla.x = maxPantalla.x - meitatMidaImatgeX;
+
+        //vertical 
+
+        minPantalla.y = minPantalla.y + meitatMidaImatgeY;
+        maxPantalla.y = maxPantalla.y - meitatMidaImatgeY;
+
+
 
     }
 
@@ -36,6 +51,9 @@ public class NouJugador : MonoBehaviour
         novaPos.y = Mathf.Clamp(novaPos.y, minPantalla.y, maxPantalla.y);
 
         transform.position = novaPos;
+
+
+
 
     }
 }
