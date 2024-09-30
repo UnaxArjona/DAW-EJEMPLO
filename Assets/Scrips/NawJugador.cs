@@ -6,9 +6,12 @@ public class NouJugador : MonoBehaviour
 {
 
     private float _vel;
-
+   
     Vector2 minPantalla, maxPantalla;
-
+    [SerializeField] private GameObject prefabProjectil;
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +19,8 @@ public class NouJugador : MonoBehaviour
         minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0,0));
         maxPantalla = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
         
-        float meitatMidaImatgeX =GetComponent<SpriteRenderer>().sprite.bounds.size.x transform.localScale.x /2;
-        float meitatMidaImatgeY =GetComponent<SpriteRenderer>().sprite.bounds.size.y transform.localScale.y /2;
+        float meitatMidaImatgeX =GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x /2;
+        float meitatMidaImatgeY =GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y /2;
 
 
         //horizontal
@@ -36,7 +39,25 @@ public class NouJugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MoureNau();
+        DisparaProjectil();
+    }
 
+
+    private void DisparaProjectil()
+    {
+        if(Input.GetKeyDown("space")){
+
+            GameObject Projectil = Instantiate(prefabProjectil);
+            Projectil.transform.position =  transform.position;
+        }
+
+
+
+    }
+
+    private void MoureNau()
+    {
 
         float direccioindicadaX = Input.GetAxisRaw("Horizontal");
         float direccioindicadaY = Input.GetAxisRaw("Vertical");
@@ -52,8 +73,7 @@ public class NouJugador : MonoBehaviour
 
         transform.position = novaPos;
 
-
-
-
+    
+    
     }
 }
