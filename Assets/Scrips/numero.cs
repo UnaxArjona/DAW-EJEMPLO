@@ -36,7 +36,16 @@ public class numero : MonoBehaviour
     {
     Destroy(gameObject);
     }
-
+    
 
     }
+
+   private void OnTriggerEnter2D(Collider2D objecteTocat)
+{
+    if (objecteTocat.tag == "Jugador" || objecteTocat.tag == "ProjectilJugador")
+    {
+
+        Destroy(gameObject);
+    }
+}
 }
