@@ -8,6 +8,7 @@ public class AnaraPantallaJoc : MonoBehaviour
 {
     public void AnaraPantallaJugant()
     {
+    DadesGlobals.ReiniciarPunts();
     SceneManager.LoadScene("PantallaJugant");
 
 
